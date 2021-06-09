@@ -1,15 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    {% for pro in products %}
-    <h1>{{pro.name}}</h1>
-    <img src="{{pro.img.url}}" style="width: 500px; height: 300px;">
-    <h2>{{pro.desc}}</h2>
-    <h3>{{pro.price}}</h3>
+{% extends "base.html" %}
+{% block content %}
+    <div class="row card-group">
+        {% for pro in products %}
+        <div class="col-lg-3 col-md-4 col-sm-6 mt-2 mb-2">
+            <div class="card text-center" >
+                <div>
+                    <img style="width:90%; height: 14rem;" class="img-fluid card-img-top mt-2" src="{{pro.img.url}}" alt="Card image cap">
+                </div>
+                <div class="card-body">
+                    <h3>{{pro.name}}</h3>
+                    <h3>Price: {{pro.price}} Rs/-</h3>
+                    <form method="get" action="{% url 'details' pro.id %}">
+                        {% csrf_token %}
+                        <button class="btn btn-primary">details</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     {% endfor %}
-</body>
-</html>
+    </div>
+{% endblock %}

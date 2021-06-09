@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="col-12">
+    <div class="card text-center" >
+        <div>
+            <img style="width:40%;" class="img-fluid card-img-top mt-2" src="{{pro.img.url}}" alt="Card image cap">
+        </div>
+        <div class="card-body">
+            <h3>{{pro.name}}</h3>
+            <h4>{{pro.desc}}</h4>
+            <h3>Price: {{pro.price}} Rs/-</h3>
+        </div>
+    </div>
+</div>
+{% endblock %}
